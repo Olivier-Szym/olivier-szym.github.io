@@ -1,0 +1,53 @@
+PRIVACY POLICY FOR MOODIFY
+Last updated: November 30, 2024
+
+This Privacy Policy explains how Moodify (the “App,” “we,” “our,” or “us”) handles your data when you use our application.
+
+Questions or concerns?
+If you have any questions or concerns about this policy, please contact us at: szymolivtech@gmail.com.
+
+Key Highlights
+Personal data collected: Moodify does not collect any personal data.
+Ads with AdMob: We use Google AdMob to display ads, which may collect data such as your device’s advertising ID.
+Data security: No user data is stored or shared by Moodify.
+Recommended age: Moodify is designed for users aged 13 and above.
+1. DATA COLLECTED
+Data you provide
+Moodify does not request or collect any sensitive or personal information directly from users.
+
+Automatic data collection by third parties
+When you use Moodify, third-party services like Google AdMob may collect data such as:
+
+Your device's unique advertising ID (IDFA on iOS, AAID on Android).
+This data is used to provide personalized ads. For more details, please review Google’s privacy policy here.
+
+2. HOW WE USE YOUR INFORMATION
+Moodify integrates third-party advertising services to:
+
+Display ads within the app.
+Financially support the app's development.
+No data collected is used by us to identify users.
+
+3. LEGAL BASIS FOR DATA PROCESSING
+Moodify adheres to applicable data protection laws, including the GDPR:
+
+Consent: By using the app, you consent to data collection by third-party advertisers.
+You can disable personalized ads in your device settings at any time.
+4. TARGET AUDIENCE
+Moodify is intended for users aged 13 and above, in compliance with Google AdMob advertising policies.
+
+5. HOW WE PROTECT YOUR DATA
+Although we do not store any user data, third-party services we use implement their own security measures to protect collected data.
+
+6. YOUR RIGHTS
+You have the right to:
+
+Disable personalized ads through your device settings.
+Review Google’s privacy policy to exercise your rights over data collected by their services.
+7. POLICY UPDATES
+We may update this Privacy Policy from time to time to comply with applicable laws. Changes will be indicated with a new "last updated" date.
+
+Contact Us
+For any questions or concerns:
+
+Email: szymolivtech@gmail.com
