@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tour du Mont-Blanc — L'application de référence pour le TMB. Carte hors ligne, planificateur, météo. 167 km · 3 pays · 7 variantes.">
+<meta name="theme-color" content="#0D0D0D">
+<meta property="og:title" content="TMB — Tour du Mont-Blanc App">
+<meta property="og:description" content="La carte qui marche même sans réseau. 167 km · 11 733 m D+ · 3 pays.">
+<meta property="og:image" content="https://i.imgur.com/placeholder.png">
+
+<!-- PWA / iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TMB App">
+<link rel="apple-touch-icon" href="icon-512.png">
+<link rel="manifest" href="manifest.json">
+
+<title>TMB — Tour du Mont-Blanc App</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --forest: #1B3A2D;
+    --fern: #2D6A4F;
+    --moss: #52B788;
+    --moss-light: #A8D5BC;
+    --route: #E63946;
+    --summit: #F4A261;
+    --void: #0D0D0D;
+    --card: #141414;
+    --surface: #1E1E1E;
+    --text: #EEEEEE;
+    --muted: #888888;
+    --divider: #2A2A2A;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--void);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── TOPO CANVAS ── */
+  #topo-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0.06;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to bottom, rgba(13,13,13,0.95), transparent);
+    backdrop-filter: blur(0px);
+    transition: backdrop-filter 0.3s;
+  }
+
+  nav.scrolled {
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--divider);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-circle {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--moss);
+    background: var(--forest);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--moss);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--moss); }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--moss);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 10vw, 120px);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--text);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title span {
+    color: var(--moss);
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(18px, 3vw, 32px);
+    color: var(--muted);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--route);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .stat-sep {
+    width: 1px;
+    height: 48px;
+    background: var(--divider);
+    align-self: center;
+  }
+
+  /* ── DOWNLOAD BUTTONS ── */
+  .download-row {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 1s forwards;
+  }
+
+  .btn-store {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-store:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  }
+
+  .btn-android {
+    background: var(--moss);
+    color: #0A1F15;
+  }
+
+  .btn-ios {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--divider);
+  }
+
+  .btn-store svg { flex-shrink: 0; }
+
+  .btn-label-small { font-size: 10px; opacity: 0.7; display: block; text-transform: uppercase; letter-spacing: 0.06em; }
+  .btn-label-big { font-size: 15px; font-weight: 600; display: block; }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease 1.5s forwards;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--moss), transparent);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ── SECTION ── */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── FEATURES ── */
+  .features {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--moss);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 64px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    padding: 32px;
+    transition: border-color 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--moss);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .feature-card:hover {
+    border-color: var(--fern);
+    transform: translateY(-4px);
+  }
+
+  .feature-card:hover::before { transform: scaleX(1); }
+
+  .feature-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .feature-icon.green { background: #1B3A2D; }
+  .feature-icon.red { background: #2E1A1A; }
+  .feature-icon.orange { background: #2E200A; }
+  .feature-icon.blue { background: #0A1A2E; }
+
+  .feature-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .feature-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: #1B3A2D;
+    color: var(--moss);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 16px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── ROUTE STRIP ── */
+  .route-strip {
+    background: var(--forest);
+    padding: 60px 40px;
+    text-align: center;
+    border-top: 1px solid var(--fern);
+    border-bottom: 1px solid var(--fern);
+  }
+
+  .route-strip p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 36px);
+    color: var(--moss-light);
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .route-strip strong {
+    color: var(--text);
+    font-style: normal;
+  }
+
+  /* ── VARIANTS ── */
+  .variants {
+    padding: 100px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .variants-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--divider);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 48px;
+  }
+
+  .variant-row {
+    display: flex;
+    align-items: center;
+    padding: 20px 28px;
+    border-bottom: 1px solid var(--divider);
+    transition: background 0.2s;
+    gap: 20px;
+  }
+
+  .variant-row:last-child { border-bottom: none; }
+  .variant-row:hover { background: var(--card); }
+
+  .variant-dot {
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .variant-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    flex: 1;
+  }
+
+  .variant-delta {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    gap: 16px;
+  }
+
+  .variant-delta span { color: var(--moss); }
+
+  /* ── PREMIUM ── */
+  .premium-section {
+    padding: 100px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .premium-card {
+    background: var(--forest);
+    border: 1px solid var(--fern);
+    border-radius: 28px;
+    padding: 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .premium-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--text);
+    line-height: 1;
+    margin: 24px 0 8px;
+  }
+
+  .premium-once {
+    font-size: 16px;
+    color: var(--moss);
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  .premium-perks {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    text-align: left;
+    margin-bottom: 40px;
+  }
+
+  .perk {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--moss-light);
+    line-height: 1.5;
+  }
+
+  .perk-check {
+    width: 20px; height: 20px;
+    border-radius: 50%;
+    background: var(--moss);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid var(--divider);
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .footer-left {
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--moss); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; transform: scaleY(1); }
+    50% { opacity: 1; transform: scaleY(1.1); }
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .features, .variants, .premium-section { padding: 60px 20px; }
+    .route-strip { padding: 40px 20px; }
+    .hero-stats { gap: 20px; }
+    .stat-sep { display: none; }
+    footer { flex-direction: column; text-align: center; padding: 32px 20px; }
+    .premium-card { padding: 40px 24px; }
+  }
+
+  /* ── IOS BANNER ── */
+  .ios-banner {
+    display: none;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(20,20,20,0.97);
+    border-top: 1px solid var(--divider);
+    padding: 16px 24px;
+    z-index: 200;
+    align-items: center;
+    gap: 16px;
+    backdrop-filter: blur(20px);
+  }
+
+  .ios-banner.show { display: flex; }
+
+  .ios-banner-icon {
+    width: 48px; height: 48px;
+    background: var(--forest);
+    border-radius: 12px;
+    border: 1px solid var(--fern);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 20px;
+  }
+
+  .ios-banner-text { flex: 1; }
+  .ios-banner-text strong { display: block; font-size: 14px; color: var(--text); }
+  .ios-banner-text span { font-size: 12px; color: var(--muted); }
+
+  .ios-banner-btn {
+    background: var(--moss);
+    color: #0A1F15;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .ios-banner-close {
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Topographic background canvas -->
+<canvas id="topo-canvas"></canvas>
+
+<!-- iOS install banner -->
+<div class="ios-banner" id="ios-banner">
+  <div class="ios-banner-icon">🏔️</div>
+  <div class="ios-banner-text">
+    <strong>Ajouter à l'écran d'accueil</strong>
+    <span>Accès rapide depuis votre iPhone</span>
+  </div>
+  <button class="ios-banner-btn" onclick="showIosInstallGuide()">Installer</button>
+  <button class="ios-banner-close" onclick="document.getElementById('ios-banner').classList.remove('show')">×</button>
+</div>
+
+<!-- Navigation -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-circle">TMB</div>
+    <span class="nav-title">Tour du Mont-Blanc</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Fonctionnalités</a></li>
+    <li><a href="#variantes">Variantes</a></li>
+    <li><a href="#premium">Premium</a></li>
+    <li><a href="ios.html">iPhone</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<header class="hero">
+  <div class="hero-eyebrow">France · Suisse · Italie</div>
+
+  <h1 class="hero-title">
+    Tour du
+    <span>Mont-Blanc</span>
+  </h1>
+
+  <p class="hero-subtitle">La montagne dans ta poche.</p>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-value">167</div>
+      <div class="stat-label">Kilomètres</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <div class="stat-value">11 733</div>
+      <div class="stat-label">Mètres D+</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <div class="stat-value">7</div>
+      <div class="stat-label">Variantes</div>
+    </div>
+    <div class="stat-sep"></div>
+    <div class="stat">
+      <div class="stat-value">5</div>
+      <div class="stat-label">Langues</div>
+    </div>
+  </div>
+
+  <div class="download-row">
+    <!-- Android → Play Store -->
+    <a href="https://play.google.com/store/apps/details?id=com.zimoliv.tourdumont_blanc"
+       class="btn-store btn-android"
+       target="_blank"
+       id="android-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="#0A1F15">
+        <path d="M17.523 15.341l-.97-.97V8.5c0-2.21-1.79-4-4-4s-4 1.79-4 4v5.871l-.97.97L3 20h18l-3.477-4.659zM12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2z"/>
+        <path d="M3 3l18 18M4.27 1L3 2.27l2.1 2.1A5.97 5.97 0 0 0 4 8.5v5.871l-.97.97L0 20h2.17L15.83 6.34 4.27 1zM12 2c-1.1 0-2 .9-2 2h4c0-1.1-.9-2-2-2z" opacity="0.3"/>
+      </svg>
+      <div>
+        <span class="btn-label-small">Disponible sur</span>
+        <span class="btn-label-big">Google Play</span>
+      </div>
+    </a>
+
+    <!-- iOS → page dédiée -->
+    <a href="ios.html" class="btn-store btn-ios" id="ios-btn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EEEEEE" stroke-width="1.5">
+        <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+      </svg>
+      <div>
+        <span class="btn-label-small">Voir sur</span>
+        <span class="btn-label-big">iPhone</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- Features -->
+<section class="features" id="features">
+  <div class="section-label">Fonctionnalités</div>
+  <h2 class="section-title">Tout ce qu'il faut<br>pour le trek.</h2>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon green">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52B788" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+          <circle cx="12" cy="10" r="3"/>
+        </svg>
+      </div>
+      <h3 class="feature-title">Carte hors ligne</h3>
+      <p class="feature-desc">La carte topographique complète de la zone TMB, disponible sans connexion internet. Fonctionne dans les zones les plus reculées.</p>
+      <span class="feature-badge">⭐ Premium</span>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon red">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#E63946" stroke-width="2">
+          <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+        </svg>
+      </div>
+      <h3 class="feature-title">Profil altimétrique</h3>
+      <p class="feature-desc">Visualisez le profil d'élévation de tout le parcours. Tapez un point sur le graphique pour le localiser sur la carte, et inversement.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon orange">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4A261" stroke-width="2">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+      </div>
+      <h3 class="feature-title">Planificateur</h3>
+      <p class="feature-desc">Générez votre planning en quelques secondes : durée (5–11 jours), type d'hébergement, sens de marche. Mini-carte pour chaque étape.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon blue">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1976D2" stroke-width="2">
+          <path d="M12 2a7 7 0 0 1 7 7c0 4.5-7 13-7 13S5 13.5 5 9a7 7 0 0 1 7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+      </div>
+      <h3 class="feature-title">GPS intelligent</h3>
+      <p class="feature-desc">Votre position en temps réel sur la carte. Optimisé pour économiser la batterie — une seule requête au démarrage en mode Premium.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon green">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#52B788" stroke-width="2">
+          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/>
+        </svg>
+      </div>
+      <h3 class="feature-title">Météo des sommets</h3>
+      <p class="feature-desc">Prévisions 5 jours pour Chamonix, Courmayeur, Champex, Contamines et Trient. Cache hors ligne avec indicateur de fraîcheur.</p>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-icon orange">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F4A261" stroke-width="2">
+          <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+        </svg>
+      </div>
+      <h3 class="feature-title">5 langues</h3>
+      <p class="feature-desc">Interface disponible en français, anglais, allemand, italien et polonais. Changez la langue directement dans les paramètres.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Route strip -->
+<div class="route-strip">
+  <p>
+    <strong>167 kilomètres.</strong> 11 733 mètres de dénivelé positif.<br>
+    Trois pays. Dix refuges. Une seule application.
+  </p>
+</div>
+
+<!-- Variants -->
+<section class="variants" id="variantes">
+  <div class="section-label">Variantes</div>
+  <h2 class="section-title">Le TMB,<br>comme tu le veux.</h2>
+
+  <div class="variants-list">
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#FF6B35"></div>
+      <span class="variant-name">Fenêtre d'Arpette</span>
+      <div class="variant-delta"><span>+4 km</span> · +350 m D+</div>
+    </div>
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#F7C59F"></div>
+      <span class="variant-name">Tête Bernarda</span>
+      <div class="variant-delta"><span>+3 km</span> · +200 m D+</div>
+    </div>
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#A8E6CF"></div>
+      <span class="variant-name">Vallorcine</span>
+      <div class="variant-delta"><span>+3 km</span> · +200 m D+</div>
+    </div>
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#4ECDC4"></div>
+      <span class="variant-name">Les Grands</span>
+      <div class="variant-delta"><span>-3 km</span> · -100 m D+</div>
+    </div>
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#FFE66D"></div>
+      <span class="variant-name">Col de Tricot</span>
+      <div class="variant-delta"><span>+6 km</span> · +550 m D+</div>
+    </div>
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#A8DADC"></div>
+      <span class="variant-name">Col des Fours</span>
+      <div class="variant-delta"><span>+2 km</span> · +300 m D+</div>
+    </div>
+    <div class="variant-row">
+      <div class="variant-dot" style="background:#C77DFF"></div>
+      <span class="variant-name">Le Tour</span>
+      <div class="variant-delta"><span>+4 km</span> · +300 m D+</div>
+    </div>
+  </div>
+</section>
+
+<!-- Premium -->
+<section class="premium-section" id="premium">
+  <div class="section-label">Premium</div>
+  <h2 class="section-title" style="text-align:center">Une fois.<br>Pour toujours.</h2>
+
+  <div class="premium-card">
+    <p style="color:var(--moss-light); font-size:14px; letter-spacing:0.08em; text-transform:uppercase;">Accès à vie</p>
+    <div class="premium-price">2,99€</div>
+    <p class="premium-once">Un seul paiement. Aucun abonnement. Aucune surprise.</p>
+
+    <div class="premium-perks">
+      <div class="perk">
+        <div class="perk-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0A1F15" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+        </div>
+        Carte hors ligne complète
+      </div>
+      <div class="perk">
+        <div class="perk-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0A1F15" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+        </div>
+        Zéro publicité
+      </div>
+      <div class="perk">
+        <div class="perk-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0A1F15" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+        </div>
+        GPS économe en batterie
+      </div>
+      <div class="perk">
+        <div class="perk-check">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#0A1F15" stroke-width="3"><polyline points="20,6 9,17 4,12"/></svg>
+        </div>
+        Mises à jour incluses
+      </div>
+    </div>
+
+    <a href="https://play.google.com/store/apps/details?id=com.zimoliv.tourdumont_blanc"
+       class="btn-store btn-android"
+       target="_blank"
+       style="display:inline-flex; margin:0 auto;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A1F15">
+        <path d="M3 18.5v-13c0-.83.94-1.3 1.6-.8l11 6.5c.6.36.6 1.24 0 1.6l-11 6.5c-.66.5-1.6.03-1.6-.8z"/>
+      </svg>
+      <div>
+        <span class="btn-label-small">Télécharger sur</span>
+        <span class="btn-label-big">Google Play</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">
+    © 2025 Tour du Mont-Blanc App · Fait avec ❤️ en France
+  </div>
+  <div class="footer-links">
+    <a href="ios.html">iPhone</a>
+    <a href="mailto:szymolivtech@gmail.com">Contact</a>
+    <a href="#premium">Premium</a>
+  </div>
+</footer>
+
+<!-- iOS install guide modal -->
+<div id="ios-modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:300; align-items:flex-end; justify-content:center; backdrop-filter:blur(8px);">
+  <div style="background:#1A1A1A; border-radius:24px 24px 0 0; padding:32px 28px; width:100%; max-width:480px; border-top:1px solid #333;">
+    <div style="width:40px;height:4px;background:#444;border-radius:4px;margin:0 auto 24px;"></div>
+    <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;">Ajouter à l'écran d'accueil</h3>
+    <p style="color:#888;font-size:14px;margin-bottom:24px;">3 étapes pour accéder à l'app TMB depuis votre iPhone</p>
+
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div style="display:flex;align-items:center;gap:14px;background:#222;border-radius:14px;padding:16px;">
+        <div style="width:36px;height:36px;background:#1B3A2D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;color:#52B788;font-size:16px;">1</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;margin-bottom:2px;">Appuyez sur Partager</div>
+          <div style="font-size:12px;color:#888;">L'icône □↑ en bas de Safari</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;background:#222;border-radius:14px;padding:16px;">
+        <div style="width:36px;height:36px;background:#1B3A2D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;color:#52B788;font-size:16px;">2</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;margin-bottom:2px;">Sur l'écran d'accueil</div>
+          <div style="font-size:12px;color:#888;">Faites défiler et appuyez sur "Sur l'écran d'accueil"</div>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:14px;background:#222;border-radius:14px;padding:16px;">
+        <div style="width:36px;height:36px;background:#1B3A2D;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;color:#52B788;font-size:16px;">3</div>
+        <div>
+          <div style="font-size:14px;font-weight:500;margin-bottom:2px;">Appuyez sur Ajouter</div>
+          <div style="font-size:12px;color:#888;">L'icône TMB apparaît sur votre écran d'accueil</div>
+        </div>
+      </div>
+    </div>
+
+    <button onclick="closeIosModal()" style="width:100%;margin-top:20px;background:#52B788;color:#0A1F15;border:none;padding:16px;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer;">Compris !</button>
+  </div>
+</div>
+
+<script>
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('main-nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Topo canvas animation
+const canvas = document.getElementById('topo-canvas');
+const ctx = canvas.getContext('2d');
+let lines = [];
+let t = 0;
+
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  generateLines();
+}
+
+function generateLines() {
+  lines = [];
+  const count = 12;
+  for (let i = 0; i < count; i++) {
+    const points = [];
+    const y = (canvas.height / count) * i + (canvas.height / count) * 0.5;
+    for (let x = -100; x <= canvas.width + 100; x += 60) {
+      points.push({ x, y: y + Math.sin((x * 0.008) + i * 0.7) * 40 + Math.sin((x * 0.02) + i) * 15 });
+    }
+    lines.push(points);
+  }
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = '#52B788';
+  ctx.lineWidth = 0.8;
+  lines.forEach((pts, i) => {
+    ctx.beginPath();
+    pts.forEach((p, j) => {
+      const animated = p.y + Math.sin((t * 0.5 + j * 0.3 + i * 0.5)) * 3;
+      j === 0 ? ctx.moveTo(p.x, animated) : ctx.lineTo(p.x, animated);
+    });
+    ctx.stroke();
+  });
+  t += 0.015;
+  requestAnimationFrame(draw);
+}
+
+window.addEventListener('resize', resize);
+resize();
+draw();
+
+// iOS detection
+const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+const isInStandaloneMode = ('standalone' in window.navigator) && window.navigator.standalone;
+if (isIOS && !isInStandaloneMode) {
+  setTimeout(() => document.getElementById('ios-banner').classList.add('show'), 3000);
+}
+
+// iOS modal
+function showIosInstallGuide() {
+  const modal = document.getElementById('ios-modal');
+  modal.style.display = 'flex';
+}
+
+function closeIosModal() {
+  document.getElementById('ios-modal').style.display = 'none';
+}
+
+document.getElementById('ios-modal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeIosModal();
+});
+
+// Smart redirect based on device
+const isAndroid = /Android/.test(navigator.userAgent);
+if (isIOS) {
+  document.getElementById('android-btn').style.opacity = '0.5';
+}
+</script>
+</body>
+</html>
