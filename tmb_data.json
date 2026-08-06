@@ -720,6 +720,13 @@
   ],
   "camping": [
     {
+      "id": "camping_bivouac_chapieux",
+      "nom": "Bivouac des Chapieux",
+      "lat": 45.695684687828326,
+      "lon": 6.734246130736505,
+      "note": "À compléter."
+    },
+    {
       "id": "pontet_camping",
       "nom": "Camping le Pontet",
       "lat": 45.80289,
