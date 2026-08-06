@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "data_version": 3,
+  "data_version": 4,
   "updated_at": "2026-08-06",
   "sources": [
     "refuges.info (CC BY-SA 2.0) - www.refuges.info",
@@ -562,10 +562,14 @@
       "id": "umap_refuge_de_la_balme",
       "nom": "Refuge de la Balme",
       "type": "gite_etape",
-      "variante": "a_verifier",
+      "variante": "principal",
       "lat": 45.757417,
       "lon": 6.710978,
-      "alt": null,
+      "alt": 1706,
+      "capacite": 39,
+      "contact": {
+        "tel": "+334 50 47 03 54"
+      },
       "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
       "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32361-refuge-de-la-balme.aspx"
     },
