@@ -1,60 +1,27 @@
 {
   "schema_version": 1,
-  "data_version": 1,
+  "data_version": 2,
   "updated_at": "2026-08-06",
   "sources": [
     "refuges.info (CC BY-SA 2.0) - www.refuges.info",
     "montourdumontblanc.com"
   ],
   "note_filtrage": "Seuls les points situés sur le tracé principal du TMB ou sur une variante classique largement empruntée (Fenêtre d'Arpette, Bovine, Col de Tricot, Col des Fours / Thomas Roques-lacs Jovet) sont inclus. Les bivouacs et refuges d'alpinisme nécessitant un aller-retour hors TMB (glaciers, voie normale du Mont-Blanc, arêtes) ont été volontairement exclus.",
-
   "refuges": [
-    {
-      "id": "orny",
-      "nom": "Cabane d'Orny",
-      "type": "refuge_garde",
-      "variante": "fenetre_arpette",
-      "lat": 46.00191, "lon": 7.06278, "alt": 2811,
-      "capacite": 86,
-      "periode": "mi-juin à fin septembre",
-      "tarif_indicatif": "CHF 94.- demi-pension adulte",
-      "contact": { "tel": "+41 27 783 18 87", "email": "orny@cas-diablerets.ch" },
-      "site": "https://cas-diablerets.ch/cabanes/cabane-orny/",
-      "reservation": "https://www.hut-reservation.org/reservation/book-hut/279/wizard"
-    },
-    {
-      "id": "trient",
-      "nom": "Cabane du Trient",
-      "type": "refuge_garde",
-      "variante": "fenetre_arpette",
-      "lat": 45.99956, "lon": 7.04355, "alt": 3170,
-      "capacite": 90,
-      "periode": "début mars-fin avril et début juin-fin septembre",
-      "tarif_indicatif": "CHF 97.- demi-pension adulte",
-      "contact": { "tel": "+41 27 783 14 38", "email": "trient@cas-diablerets.ch" },
-      "site": "https://cas-diablerets.ch/cabanes/cabane-du-trient/",
-      "reservation": "https://www.hut-reservation.org/reservation/book-hut/281/wizard"
-    },
-    {
-      "id": "robert_blanc",
-      "nom": "Refuge Robert Blanc",
-      "type": "refuge_garde",
-      "variante": "thomas_roques",
-      "lat": 45.7653, "lon": 6.7744, "alt": 2750,
-      "capacite": 40,
-      "periode": "mi-mai à mi-septembre",
-      "contact": { "tel": "+33 4 79 07 24 22", "email": "info@refugerobertblanc.fr" },
-      "site": "https://refugerobertblanc.fr/"
-    },
     {
       "id": "elisabetta",
       "nom": "Refuge Elisabetta Soldini Montanaro",
       "type": "refuge_garde",
       "variante": "principal",
-      "lat": 45.767, "lon": 6.83745, "alt": 2195,
+      "lat": 45.767,
+      "lon": 6.83745,
+      "alt": 2195,
       "capacite": 80,
       "periode": "été uniquement",
-      "contact": { "tel": "+39 0165 844080", "email": "rifugioelisabetta@alice.it" },
+      "contact": {
+        "tel": "+39 0165 844080",
+        "email": "rifugioelisabetta@alice.it"
+      },
       "site": "https://www.rifugioelisabetta.com/"
     },
     {
@@ -62,99 +29,116 @@
       "nom": "Refuge de la Croix du Bonhomme",
       "type": "refuge_garde",
       "variante": "principal",
-      "lat": 45.72209, "lon": 6.7173, "alt": 2443,
+      "lat": 45.72209,
+      "lon": 6.7173,
+      "alt": 2443,
       "capacite": 99,
       "periode": "juin à fin septembre",
       "alerte": "FERMÉ pour rénovation de mi-août 2026 au printemps 2029 (sous réserve). À vérifier avant tout itinéraire passant par là.",
-      "contact": { "tel": "09 70 02 81 47", "email": "refugecroixdubonhomme@ffcam.fr" },
+      "contact": {
+        "tel": "09 70 02 81 47",
+        "email": "refugecroixdubonhomme@ffcam.fr"
+      },
       "site": "https://refugecroixdubonhomme.ffcam.fr/"
-    },
-    {
-      "id": "albert_1er",
-      "nom": "Refuge Albert 1er",
-      "type": "refuge_garde",
-      "variante": "detour_col_de_balme",
-      "lat": 45.99675, "lon": 6.98663, "alt": 2706,
-      "capacite": 140,
-      "periode": "mi-mars à fin avril et fin mai à mi-septembre",
-      "contact": { "tel": "+33 4 50 54 06 20", "email": "labordepaul@gmail.com" },
-      "site": "https://refugealbert1er.ffcam.fr/home.html"
     },
     {
       "id": "peuty",
       "nom": "Refuge le Peuty",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.04663, "lon": 6.99386, "alt": 1326,
+      "lat": 46.04663,
+      "lon": 6.99386,
+      "alt": 1326,
       "capacite": 22,
       "note": "Trient - espace bivouac aménagé à côté (eau, toilettes, table)",
-      "contact": { "tel": "+41 78 719 29 83", "email": "info@refugelepeuty.ch" },
-      "site": "https://www.refugelepeuty.ch/"
+      "contact": {
+        "tel": "+41 78 719 29 83",
+        "email": "info@refugelepeuty.ch"
+      },
+      "site": "https://www.refugelepeuty.ch/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32405-refuge-du-peuty.aspx"
     },
     {
       "id": "forclaz",
       "nom": "Gîte du col de la Forclaz",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.058, "lon": 7.0012, "alt": 1527,
+      "lat": 46.058,
+      "lon": 7.0012,
+      "alt": 1527,
       "capacite": 40,
-      "contact": { "tel": "027 722 26 88", "email": "colforclazhotel@bluewin.ch" },
-      "site": "http://www.coldelaforclaz.ch/home.aspx"
-    },
-    {
-      "id": "bovinette",
-      "nom": "Cabane de Bovinette",
-      "type": "gite_etape",
-      "variante": "bovine",
-      "lat": 46.05972, "lon": 7.06097, "alt": 1640,
-      "capacite": 15,
-      "note": "Clés sur demande. Sur la variante Bovine entre col de la Forclaz et Champex-Lac.",
-      "contact": { "tel": "+41 79 332 35 19", "email": "sabbet@mycable.ch" },
-      "site": "https://skiclubmartigny.ch/cabane/"
+      "contact": {
+        "tel": "027 722 26 88",
+        "email": "colforclazhotel@bluewin.ch"
+      },
+      "site": "http://www.coldelaforclaz.ch/home.aspx",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32404-hotel-du-col-de-la-forclaz.aspx"
     },
     {
       "id": "moulin",
       "nom": "Refuge du Moulin",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.99353, "lon": 6.93341, "alt": 1370,
+      "lat": 45.99353,
+      "lon": 6.93341,
+      "alt": 1370,
       "capacite": 38,
       "note": "Hameau des Frasserands, entre Argentière et Le Tour",
-      "contact": { "tel": "04 50 54 05 37" },
-      "site": "http://www.gite-chamonix.com/"
+      "contact": {
+        "tel": "04 50 54 05 37"
+      },
+      "site": "http://www.gite-chamonix.com/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32379-gite-le-moulin.aspx"
     },
     {
       "id": "chalet_la_grange",
       "nom": "Chalet La Grange",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.0359, "lon": 7.0992, "alt": 1443,
+      "lat": 46.0359,
+      "lon": 7.0992,
+      "alt": 1443,
       "capacite": 12,
       "periode": "mi-juin à mi-septembre",
-      "contact": { "tel": "+41 79 916 49 33", "email": "info@lagrangechampex.ch" },
-      "site": "https://www.lagrangechampex.ch/"
+      "contact": {
+        "tel": "+41 79 916 49 33",
+        "email": "info@lagrangechampex.ch"
+      },
+      "site": "https://www.lagrangechampex.ch/",
+      "site_montourdumontblanc": "https://www.montourdumontblanc.com/fr/il4-refuge_i110727-chalet-la-grange.aspx"
     },
     {
       "id": "chalet_alpin_du_tour",
       "nom": "Chalet Alpin du Tour",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.00158, "lon": 6.94742, "alt": 1466,
+      "lat": 46.00158,
+      "lon": 6.94742,
+      "alt": 1466,
       "capacite": 83,
       "periode": "avril à mi-septembre",
-      "contact": { "tel": "04 50 54 04 16", "email": "chaletdutour@ffcam.fr" },
-      "site": "https://chaletdutour.ffcam.fr/"
+      "contact": {
+        "tel": "04 50 54 04 16",
+        "email": "chaletdutour@ffcam.fr"
+      },
+      "site": "https://chaletdutour.ffcam.fr/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32377-chalet-alpin-du-tour.aspx"
     },
     {
       "id": "col_de_balme",
       "nom": "Refuge du Col de Balme",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.02669, "lon": 6.97006, "alt": 2190,
+      "lat": 46.02669,
+      "lon": 6.97006,
+      "alt": 2190,
       "capacite": 20,
       "periode": "mi-juin à fin septembre",
       "note": "Frontière franco-suisse juste derrière le refuge",
-      "contact": { "tel": "+33 6 07 06 16 30", "email": "henri.lapeyrere@gmail.com" },
+      "contact": {
+        "tel": "+33 6 07 06 16 30",
+        "email": "henri.lapeyrere@gmail.com"
+      },
       "site": "https://www.refugeducoldebalme.com"
     },
     {
@@ -162,86 +146,131 @@
       "nom": "Relais d'Arpette",
       "type": "gite_etape",
       "variante": "fenetre_arpette",
-      "lat": 46.02997, "lon": 7.09292, "alt": 1630,
+      "lat": 46.02997,
+      "lon": 7.09292,
+      "alt": 1630,
       "capacite": 100,
-      "contact": { "tel": "+41 27 783 12 21" },
-      "site": "https://www.arpette.ch/"
+      "contact": {
+        "tel": "+41 27 783 12 21"
+      },
+      "site": "https://www.arpette.ch/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32403-relais-d-arpette.aspx"
     },
     {
       "id": "pension_en_plein_air",
       "nom": "Pension En Plein Air",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.03118, "lon": 7.11268, "alt": 1467,
+      "lat": 46.03118,
+      "lon": 7.11268,
+      "alt": 1467,
       "capacite": 66,
       "periode": "début juin à fin septembre",
-      "contact": { "tel": "+41 79 858 78 54", "email": "contact@pensionenpleinair.com" },
-      "site": "https://pensionenpleinair.ch/"
+      "contact": {
+        "tel": "+41 79 858 78 54",
+        "email": "contact@pensionenpleinair.com"
+      },
+      "site": "https://pensionenpleinair.ch/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32401-pension-en-plein-air.aspx"
     },
     {
       "id": "charamillon",
       "nom": "Gîte d'alpage de Charamillon",
       "type": "gite_etape",
       "variante": "detour_col_de_balme",
-      "lat": 46.01566, "lon": 6.95877, "alt": 1850,
+      "lat": 46.01566,
+      "lon": 6.95877,
+      "alt": 1850,
       "capacite": 19,
-      "contact": { "tel": "+33 6 80 88 17 18", "email": "lesecuries@gmail.com" }
+      "contact": {
+        "tel": "+33 6 80 88 17 18",
+        "email": "lesecuries@gmail.com"
+      },
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i36470-gite-d-alpage-les-ecuries-de-charamillon.aspx"
     },
     {
       "id": "bon_abri",
       "nom": "Auberge gîte Bon Abri",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 46.03549, "lon": 7.09904, "alt": 1444,
+      "lat": 46.03549,
+      "lon": 7.09904,
+      "alt": 1444,
       "capacite": 59,
       "periode": "juin à fin septembre",
-      "contact": { "tel": "+41 27 783 14 23", "email": "contact@gite-bon-abri.com" },
-      "site": "http://www.gite-bon-abri.com/"
+      "contact": {
+        "tel": "+41 27 783 14 23",
+        "email": "contact@gite-bon-abri.com"
+      },
+      "site": "http://www.gite-bon-abri.com/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32400-auberge-gite-bon-abri.aspx"
     },
     {
       "id": "chambres_du_soleil",
       "nom": "Les Chambres du Soleil",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.69691, "lon": 6.73397, "alt": 1554,
+      "lat": 45.69691,
+      "lon": 6.73397,
+      "alt": 1554,
       "note": "Chapieux",
       "periode": "mi-mai à début octobre",
-      "contact": { "tel": "04 79 31 30 22", "email": "lesoleildeschapieux@gmail.com" },
-      "site": "https://www.leschambresdusoleil-montblanc.com/"
+      "contact": {
+        "tel": "04 79 31 30 22",
+        "email": "lesoleildeschapieux@gmail.com"
+      },
+      "site": "https://www.leschambresdusoleil-montblanc.com/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i116701-les-chambres-du-soleil.aspx"
     },
     {
       "id": "cabane_du_combal",
       "nom": "Cabane du Combal",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.7764, "lon": 6.8677, "alt": 1969,
+      "lat": 45.7764,
+      "lon": 6.8677,
+      "alt": 1969,
       "capacite": 23,
       "periode": "mi-juin à mi-septembre",
       "tarif_indicatif": "90€ demi-pension",
-      "contact": { "tel": "0039 347 121 39 47", "email": "cabaneducombal@gmail.com" },
-      "site": "https://cabaneducombal.com/"
+      "contact": {
+        "tel": "0039 347 121 39 47",
+        "email": "cabaneducombal@gmail.com"
+      },
+      "site": "https://cabaneducombal.com/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i36471-cabane-du-combal.aspx"
     },
     {
       "id": "mottets",
       "nom": "Refuge des Mottets",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.73732, "lon": 6.77916, "alt": 1870,
+      "lat": 45.73732,
+      "lon": 6.77916,
+      "alt": 1870,
       "capacite": 50,
       "periode": "mi-juin à mi-septembre",
       "alerte": "Pas de refuge d'hiver. Camping/bivouac interdits autour.",
-      "contact": { "email": "refuge@lesmottets.com" },
-      "site": "http://www.lesmottets.com/tour-du-mont-blanc/"
+      "contact": {
+        "email": "refuge@lesmottets.com"
+      },
+      "site": "http://www.lesmottets.com/tour-du-mont-blanc/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32368-refuge-des-mottets.aspx"
     },
     {
       "id": "bionnassay",
       "nom": "Auberge de Bionnassay",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.86533, "lon": 6.75576, "alt": 1320,
+      "lat": 45.86533,
+      "lon": 6.75576,
+      "alt": 1320,
       "capacite": 23,
       "periode": "début juin à fin septembre",
-      "contact": { "tel": "+33 4 50 93 45 23", "email": "contact@auberge-bionnassay.com" },
+      "contact": {
+        "tel": "+33 4 50 93 45 23",
+        "email": "contact@auberge-bionnassay.com"
+      },
       "site": "https://www.auberge-bionnassay.com/"
     },
     {
@@ -249,21 +278,31 @@
       "nom": "Refuge-auberge du Truc",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.83625, "lon": 6.74955, "alt": 1720,
+      "lat": 45.83625,
+      "lon": 6.74955,
+      "alt": 1720,
       "capacite": 28,
       "alerte": "Pas de local d'hiver",
-      "contact": { "tel": "04 50 47 05 31" }
+      "contact": {
+        "tel": "04 50 47 05 31"
+      },
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32365-auberge-du-truc.aspx"
     },
     {
       "id": "miage",
       "nom": "Refuge de Miage",
       "type": "gite_etape",
       "variante": "col_de_tricot",
-      "lat": 45.83914, "lon": 6.75993, "alt": 1560,
+      "lat": 45.83914,
+      "lon": 6.75993,
+      "alt": 1560,
       "capacite": 47,
       "periode": "début mai à fin septembre",
       "note": "Aire de bivouac gratuite à proximité (source du Miage)",
-      "contact": { "tel": "+33 4 50 93 22 91", "email": "refugedemiage@orange.fr" },
+      "contact": {
+        "tel": "+33 4 50 93 22 91",
+        "email": "refugedemiage@orange.fr"
+      },
       "site": "https://www.refugemiage.com/"
     },
     {
@@ -271,55 +310,341 @@
       "nom": "Refuge du Fioux",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.87213, "lon": 6.76065, "alt": 1505,
+      "lat": 45.87213,
+      "lon": 6.76065,
+      "alt": 1505,
       "capacite": 24,
       "alerte": "Pas de local d'hiver",
-      "contact": { "tel": "04 50 93 52 43", "email": "serge.botholier@neuf.fr" }
+      "contact": {
+        "tel": "04 50 93 52 43",
+        "email": "serge.botholier@neuf.fr"
+      },
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32356-refuge-du-fioux.aspx"
     },
     {
       "id": "pontet",
       "nom": "Gîte camping le Pontet",
       "type": "gite_etape",
       "variante": "principal",
-      "lat": 45.80289, "lon": 6.72194, "alt": 1180,
+      "lat": 45.80289,
+      "lon": 6.72194,
+      "alt": 1180,
       "capacite": 32,
       "periode": "décembre à septembre",
       "note": "Le sentier TMB/GR5 traverse la base de loisirs, passerelle piétonne pour rejoindre le camping",
-      "contact": { "tel": "+33 4 50 47 04 04" },
-      "site": "https://www.campinglepontet.fr/"
+      "contact": {
+        "tel": "+33 4 50 47 04 04"
+      },
+      "site": "https://www.campinglepontet.fr/",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i39797-gite-le-pontet.aspx"
     },
     {
-      "id": "torino_nouveau",
-      "nom": "Refuge Torino (nouveau)",
+      "id": "umap_gite_de_la_fouly",
+      "nom": "Gîte de La Fouly",
       "type": "gite_etape",
-      "variante": "principal",
-      "lat": 45.84514, "lon": 6.93378, "alt": 3382,
-      "capacite": 160,
-      "periode": "à partir de mi-mai",
-      "contact": { "tel": "+39 0165 844034", "email": "info@rifugiotorino.com" },
-      "site": "https://www.rifugiotorino.com/fr/"
+      "variante": "a_verifier",
+      "lat": 45.933067,
+      "lon": 7.098331,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i114712-gite-de-la-fouly.aspx"
     },
     {
-      "id": "chapy_mont_blanc",
-      "nom": "Refuge Chapy Mont-Blanc",
+      "id": "umap_auberge_des_glaciers",
+      "nom": "Auberge des Glaciers",
       "type": "gite_etape",
-      "variante": "hors_tmb_proche",
-      "lat": 45.82277, "lon": 6.96632, "alt": 1467,
-      "capacite": 25,
-      "periode": "début juin à fin septembre",
-      "note": "À l'écart du tracé principal (versant mont de la Saxe), accès par route/bus depuis Courmayeur",
-      "contact": { "tel": "0039 375 842 97 69", "email": "info@rifugiochapymontblanc.it" },
-      "site": "https://www.rifugiochapymontblanc.it/"
+      "variante": "a_verifier",
+      "lat": 45.932263,
+      "lon": 7.098901,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32394-auberge-des-glaciers.aspx"
+    },
+    {
+      "id": "umap_auberge_la_boerne",
+      "nom": "Auberge La Boërne",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.994919,
+      "lon": 6.927719,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32378-auberge-la-boerne.aspx"
+    },
+    {
+      "id": "umap_auberge_mont_blanc",
+      "nom": "Auberge Mont-Blanc",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 46.058819,
+      "lon": 6.995373,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32406-auberge-mont-blanc.aspx"
+    },
+    {
+      "id": "umap_auberge_refuge_de_la_nova",
+      "nom": "Auberge-Refuge de la Nova",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.695542,
+      "lon": 6.732013,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32367-auberge-refuge-de-la-nova.aspx"
+    },
+    {
+      "id": "umap_chalet_le_dolent",
+      "nom": "Chalet Le Dolent",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.929468,
+      "lon": 7.096272,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32399-chalet-le-dolent.aspx"
+    },
+    {
+      "id": "umap_chalet_les_meandres",
+      "nom": "Chalet Les Méandres",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.900522,
+      "lon": 6.799164,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i39948-chalet-les-meandres-ex-tupilak.aspx"
+    },
+    {
+      "id": "umap_gite_alpage_de_la_peule",
+      "nom": "Gîte Alpage de la Peule",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.898401,
+      "lon": 7.11251,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32398-gite-alpage-de-la-peule.aspx"
+    },
+    {
+      "id": "umap_gite_de_la_lechere",
+      "nom": "Gîte de la Léchère",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.920244,
+      "lon": 7.098713,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32397-gîte-la-lechere.aspx"
+    },
+    {
+      "id": "umap_gite_le_randonneur_du_mont_blanc",
+      "nom": "Gîte le Randonneur du Mont-Blanc",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.793868,
+      "lon": 6.937743,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32389-gite-le-randonneur-du-mont-blanc.aspx"
+    },
+    {
+      "id": "umap_gite_les_melezes",
+      "nom": "Gîte Les Mélèzes",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.812663,
+      "lon": 6.728186,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i123462-gite-les-melezs.aspx"
+    },
+    {
+      "id": "umap_gite_mermoud",
+      "nom": "Gîte Mermoud",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 46.027556,
+      "lon": 6.925614,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32383-gite-mermoud.aspx"
+    },
+    {
+      "id": "umap_gite_michel_fagot",
+      "nom": "Gîte Michel Fagot",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.890322,
+      "lon": 6.797841,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32369-gite-michel-fagot.aspx"
+    },
+    {
+      "id": "umap_hotel_chalet_val_ferret",
+      "nom": "Hôtel Chalet Val Ferret",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.87125,
+      "lon": 7.053727,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32393-hotel-chalet-val-ferret.aspx"
+    },
+    {
+      "id": "umap_hotel_du_col_de_fenetre",
+      "nom": "Hôtel du Col de Fenêtre",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.916176,
+      "lon": 7.104769,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32396-hotel-du-col-de-fenetre.aspx"
+    },
+    {
+      "id": "umap_hotel_edelweiss",
+      "nom": "Hôtel Edelweiss",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.933737,
+      "lon": 7.098337,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32395-hotel-edelweiss.aspx"
+    },
+    {
+      "id": "umap_hotel_funivia",
+      "nom": "Hôtel Funivia",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.818751,
+      "lon": 6.964774,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32390-hotel-funivia.aspx"
+    },
+    {
+      "id": "umap_hotel_la_grande_ourse",
+      "nom": "Hôtel La Grande Ourse",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 46.057092,
+      "lon": 6.994085,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i39703-hotel-la-grande-ourse.aspx"
+    },
+    {
+      "id": "umap_hotel_lavachey",
+      "nom": "Hôtel Lavachey",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.850087,
+      "lon": 7.022324,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32391-hotel-lavachey.aspx"
+    },
+    {
+      "id": "umap_la_ferme_a_piron",
+      "nom": "La Ferme à Piron",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.8157,
+      "lon": 6.725392,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i127958-la-ferme-a-piron.aspx"
+    },
+    {
+      "id": "umap_refuge_de_la_balme",
+      "nom": "Refuge de la Balme",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.757417,
+      "lon": 6.710978,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32361-refuge-de-la-balme.aspx"
+    },
+    {
+      "id": "umap_refuge_de_nant_borrant",
+      "nom": "Refuge de Nant Borrant",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.778447,
+      "lon": 6.71425,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32362-refuge-de-nant-borrant.aspx"
+    },
+    {
+      "id": "umap_refuge_des_pres",
+      "nom": "Refuge des Prés",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.763254,
+      "lon": 6.701399,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i116702-refuge-des-pres.aspx"
+    },
+    {
+      "id": "umap_refuge_maya_joie",
+      "nom": "Refuge Maya-Joie",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.93061,
+      "lon": 7.097678,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i46179-refuge-mayajoie.aspx"
+    },
+    {
+      "id": "umap_rifugio_giorgio_bertone",
+      "nom": "Rifugio Giorgio Bertone",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.808902,
+      "lon": 6.978105,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32385-rifugio-g-bertone.aspx"
+    },
+    {
+      "id": "umap_rifugio_maison_vieille",
+      "nom": "Rifugio Maison Vieille",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.790805,
+      "lon": 6.93101,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32386-rifugio-maison-vieille.aspx"
+    },
+    {
+      "id": "umap_rifugio_monte_bianco_cai_uget",
+      "nom": "Rifugio Monte Bianco CAI Uget",
+      "type": "gite_etape",
+      "variante": "a_verifier",
+      "lat": 45.800597,
+      "lon": 6.93078,
+      "alt": null,
+      "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
+      "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32388-rifugio-monte-bianco-cai-uget.aspx"
     }
   ],
-
   "abris_non_gardes": [
     {
       "id": "herbageres",
       "nom": "Abri des Herbagères",
       "type": "cabane_non_gardee",
       "variante": "principal",
-      "lat": 46.02992, "lon": 6.97679, "alt": 2040,
+      "lat": 46.02992,
+      "lon": 6.97679,
+      "alt": 2040,
       "note": "Ancien bâtiment d'alpage sous le col de Balme (côté Suisse). Sol en terre battue, bâtiment vide."
     },
     {
@@ -327,7 +652,9 @@
       "nom": "Abri de l'Ars",
       "type": "cabane_non_gardee",
       "variante": "principal",
-      "lat": 45.94873, "lon": 7.1002, "alt": 1490,
+      "lat": 45.94873,
+      "lon": 7.1002,
+      "alt": 1490,
       "note": "État moyen, plus de porte, sol en terre battue. Face au hameau de la Seiloz."
     },
     {
@@ -335,7 +662,9 @@
       "nom": "Abri des Fours",
       "type": "cabane_non_gardee",
       "variante": "col_des_fours",
-      "lat": 45.73248, "lon": 6.72243, "alt": 2695,
+      "lat": 45.73248,
+      "lon": 6.72243,
+      "alt": 2695,
       "note": "Abri sommaire sans porte, dépannage en cas de mauvais temps sur la variante du col des Fours"
     },
     {
@@ -343,7 +672,9 @@
       "nom": "Cabane de Jovet",
       "type": "cabane_non_gardee",
       "variante": "thomas_roques",
-      "lat": 45.75086, "lon": 6.71322, "alt": 1920,
+      "lat": 45.75086,
+      "lon": 6.71322,
+      "alt": 1920,
       "note": "Petite cabane étanche, 4 personnes max, après le refuge de la Balme"
     },
     {
@@ -351,107 +682,398 @@
       "nom": "Abri sur le chemin du refuge de Tré la Tête",
       "type": "cabane_non_gardee",
       "variante": "conscrits",
-      "lat": 45.80112, "lon": 6.73622, "alt": 1750,
+      "lat": 45.80112,
+      "lon": 6.73622,
+      "alt": 1750,
       "note": "Abri sans porte ni couchage, deux bancs"
     }
   ],
-
   "camping": [
     {
       "id": "pontet_camping",
       "nom": "Camping le Pontet",
-      "lat": 45.80289, "lon": 6.72194, "alt": 1180,
+      "lat": 45.80289,
+      "lon": 6.72194,
+      "alt": 1180,
       "note": "Seul terrain de camping identifié directement sur le tracé dans ce jeu de données (voir aussi 'pontet' dans refuges, même lieu). Attention: la base refuges.info référence très peu de campings — pense à compléter avec les campings officiels de La Fouly, Champex, Trient et Courmayeur qui ne sont pas dans cet export."
     }
   ],
-
   "points_eau": [
-    { "id": "eau_col_balme", "nom": "Fontaine du col de Balme", "lat": 46.02683, "lon": 7.0, "alt": 2190, "variante": "principal", "potable": "non precise" },
-    { "id": "eau_herbageres", "nom": "Source sous les Herbagères", "lat": 46.03213, "lon": 6.98494, "alt": 1915, "variante": "principal" },
-    { "id": "eau_col_voza", "nom": "Fontaine du col de Voza", "lat": 45.87688, "lon": 6.76104, "alt": 1657, "variante": "principal", "potable": true },
-    { "id": "eau_deux_freres", "nom": "Source des Deux Frères", "lat": 45.843136, "lon": 6.773028, "alt": 2180, "variante": "col_de_tricot", "note": "Une 2e source 10m au sud" },
-    { "id": "eau_armancette", "nom": "Fontaine d'Armancette", "lat": 45.81756, "lon": 6.73663, "alt": 1448, "variante": "principal", "potable": true },
-    { "id": "eau_pontet_tennis", "nom": "Fontaine du Pontet (tennis)", "lat": 45.80257, "lon": 6.72393, "alt": 1176, "variante": "principal", "potable": true },
-    { "id": "eau_pontet_lac", "nom": "Fontaine du Pontet (lac)", "lat": 45.80141, "lon": 6.72296, "alt": 1177, "variante": "principal", "potable": true },
-    { "id": "eau_ndg", "nom": "Fontaine de Notre-Dame-de-la-Gorge", "lat": 45.79177, "lon": 6.71574, "alt": 1210, "variante": "principal" },
-    { "id": "eau_ndg_parking", "nom": "Fontaine de Notre-Dame-de-la-Gorge (parking)", "lat": 45.79501, "lon": 6.71771, "alt": 1195, "variante": "principal" },
-    { "id": "eau_miage", "nom": "Source du Miage", "lat": 45.8388, "lon": 6.759, "alt": 1555, "variante": "col_de_tricot", "potable": true, "note": "Aire de bivouac gratuite juste au sud, toilettes de l'autre côté de la passerelle" },
-    { "id": "eau_bionnassay", "nom": "Fontaine de Bionnassay", "lat": 45.8653, "lon": 6.75602, "alt": 1320, "variante": "principal" },
-    { "id": "eau_villette", "nom": "Fontaine de la Villette", "lat": 45.85315, "lon": 6.73371, "alt": 1055, "variante": "principal" },
-    { "id": "eau_eglise_houches", "nom": "Fontaine de l'église des Houches", "lat": 45.89034, "lon": 6.79882, "alt": 1010, "variante": "principal" },
-    { "id": "eau_mairie_houches", "nom": "Fontaine de la mairie des Houches", "lat": 45.88964, "lon": 6.79779, "alt": 1010, "variante": "principal", "potable": true },
-    { "id": "eau_snailles", "nom": "Fontaine des S'Nailles", "lat": 45.89567, "lon": 6.77749, "alt": 1040, "variante": "principal" },
-    { "id": "eau_montivon_source", "nom": "Source de Montivon", "lat": 45.87712, "lon": 6.7292, "alt": 1320, "variante": "principal" },
-    { "id": "eau_sous_montivon", "nom": "Source sous Montivon", "lat": 45.87364, "lon": 6.72865, "alt": 1160, "variante": "principal" },
-    { "id": "eau_chalere", "nom": "Source de Chalère", "lat": 45.86365, "lon": 6.77016, "alt": 1431, "variante": "alternative_bionnassay" },
-    { "id": "eau_champel", "nom": "Fontaine du Champel", "lat": 45.85952, "lon": 6.73628, "alt": 1210, "variante": "principal" },
-    { "id": "eau_croix_bonhomme", "nom": "Fontaine du refuge de la Croix du Bonhomme", "lat": 45.72214, "lon": 6.71712, "alt": 2443, "variante": "principal", "etat": "débit intermittent, traitement recommandé" },
-    { "id": "eau_lex_blanche", "nom": "Fontaine de la Lex Blanche", "lat": 45.76567, "lon": 6.83847, "alt": 2150, "variante": "principal", "note": "Alpage de la Lex Blanche, pied du refuge Elisabetta" },
-    { "id": "eau_tronchey", "nom": "Fontaine sous Tronchey", "lat": 45.8358, "lon": 6.99844, "alt": 1620, "variante": "principal", "note": "Val Ferret italien" },
-    { "id": "eau_praz_fort_1", "nom": "Fontaine de Praz de Fort (chemin de la Vallo)", "lat": 45.98886, "lon": 7.12381, "alt": 1165, "variante": "principal" },
-    { "id": "eau_praz_fort_2", "nom": "Fontaine de Praz de Fort (Coin du Village)", "lat": 45.98955, "lon": 7.12476, "alt": 1150, "variante": "principal" },
-    { "id": "eau_praz_fort_3", "nom": "Fontaine de Praz de Fort (pause du randonneur)", "lat": 45.9885, "lon": 7.12452, "alt": 1150, "variante": "principal" },
-    { "id": "eau_forclaz", "nom": "Fontaine du col de la Forclaz", "lat": 46.05777, "lon": 7.00162, "alt": 1527, "variante": "principal" },
-    { "id": "eau_trient", "nom": "Fontaine de Trient", "lat": 46.05594, "lon": 6.9958, "alt": 1300, "variante": "principal" },
-    { "id": "eau_gilliod", "nom": "Fontaine de Gilliod", "lat": 46.05624, "lon": 6.99523, "alt": 1293, "variante": "principal" },
-    { "id": "eau_voutaz", "nom": "Fontaine piste forêt Voutaz", "lat": 46.02308, "lon": 7.11807, "alt": 1480, "variante": "fenetre_arpette", "note": "Vers la combe d'Orny" },
-    { "id": "eau_chalets_balme", "nom": "Fontaine des chalets de Balme", "lat": 46.02147, "lon": 6.94949, "alt": 1984, "variante": "detour_col_de_balme", "note": "Léger écart depuis le TMB au col des Posettes" },
-    { "id": "eau_niolet", "nom": "Fontaine du Niolet", "lat": 46.01878, "lon": 7.12003, "alt": 1350, "variante": "principal" },
-    { "id": "eau_tour", "nom": "Fontaine du Tour", "lat": 46.00245, "lon": 6.94568, "alt": 1463, "variante": "principal" },
-    { "id": "eau_champex_1", "nom": "Fontaine Lac de Champex (côté Nord)", "lat": 46.02926, "lon": 7.11728, "alt": 1470, "variante": "principal" },
-    { "id": "eau_champex_2", "nom": "Fontaine Lac de Champex (côté Est)", "lat": 46.02748, "lon": 7.12039, "alt": 1470, "variante": "principal" },
-    { "id": "eau_champex_3", "nom": "Fontaine Lac de Champex (côté Nord-Ouest)", "lat": 46.03061, "lon": 7.11504, "alt": 1470, "variante": "principal" },
-    { "id": "eau_seloge", "nom": "Fontaine de Seloge", "lat": 45.72318, "lon": 6.76309, "alt": 1811, "variante": "principal", "etat": "quasiment détruite" },
-    { "id": "eau_ville_glaciers_wc", "nom": "Toilettes de la Ville des Glaciers", "lat": 45.72825, "lon": 6.76775, "alt": 1794, "variante": "principal", "potable": false, "note": "Aucune eau potable à la Ville des Glaciers, prévoir un traitement" }
+    {
+      "id": "eau_col_balme",
+      "nom": "Fontaine du col de Balme",
+      "lat": 46.02683,
+      "lon": 7.0,
+      "alt": 2190,
+      "variante": "principal",
+      "potable": "non precise"
+    },
+    {
+      "id": "eau_herbageres",
+      "nom": "Source sous les Herbagères",
+      "lat": 46.03213,
+      "lon": 6.98494,
+      "alt": 1915,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_col_voza",
+      "nom": "Fontaine du col de Voza",
+      "lat": 45.87688,
+      "lon": 6.76104,
+      "alt": 1657,
+      "variante": "principal",
+      "potable": true
+    },
+    {
+      "id": "eau_deux_freres",
+      "nom": "Source des Deux Frères",
+      "lat": 45.843136,
+      "lon": 6.773028,
+      "alt": 2180,
+      "variante": "col_de_tricot",
+      "note": "Une 2e source 10m au sud"
+    },
+    {
+      "id": "eau_armancette",
+      "nom": "Fontaine d'Armancette",
+      "lat": 45.81756,
+      "lon": 6.73663,
+      "alt": 1448,
+      "variante": "principal",
+      "potable": true
+    },
+    {
+      "id": "eau_pontet_tennis",
+      "nom": "Fontaine du Pontet (tennis)",
+      "lat": 45.80257,
+      "lon": 6.72393,
+      "alt": 1176,
+      "variante": "principal",
+      "potable": true
+    },
+    {
+      "id": "eau_pontet_lac",
+      "nom": "Fontaine du Pontet (lac)",
+      "lat": 45.80141,
+      "lon": 6.72296,
+      "alt": 1177,
+      "variante": "principal",
+      "potable": true
+    },
+    {
+      "id": "eau_ndg",
+      "nom": "Fontaine de Notre-Dame-de-la-Gorge",
+      "lat": 45.79177,
+      "lon": 6.71574,
+      "alt": 1210,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_ndg_parking",
+      "nom": "Fontaine de Notre-Dame-de-la-Gorge (parking)",
+      "lat": 45.79501,
+      "lon": 6.71771,
+      "alt": 1195,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_miage",
+      "nom": "Source du Miage",
+      "lat": 45.8388,
+      "lon": 6.759,
+      "alt": 1555,
+      "variante": "col_de_tricot",
+      "potable": true,
+      "note": "Aire de bivouac gratuite juste au sud, toilettes de l'autre côté de la passerelle"
+    },
+    {
+      "id": "eau_bionnassay",
+      "nom": "Fontaine de Bionnassay",
+      "lat": 45.8653,
+      "lon": 6.75602,
+      "alt": 1320,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_villette",
+      "nom": "Fontaine de la Villette",
+      "lat": 45.85315,
+      "lon": 6.73371,
+      "alt": 1055,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_eglise_houches",
+      "nom": "Fontaine de l'église des Houches",
+      "lat": 45.89034,
+      "lon": 6.79882,
+      "alt": 1010,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_mairie_houches",
+      "nom": "Fontaine de la mairie des Houches",
+      "lat": 45.88964,
+      "lon": 6.79779,
+      "alt": 1010,
+      "variante": "principal",
+      "potable": true
+    },
+    {
+      "id": "eau_snailles",
+      "nom": "Fontaine des S'Nailles",
+      "lat": 45.89567,
+      "lon": 6.77749,
+      "alt": 1040,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_montivon_source",
+      "nom": "Source de Montivon",
+      "lat": 45.87712,
+      "lon": 6.7292,
+      "alt": 1320,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_sous_montivon",
+      "nom": "Source sous Montivon",
+      "lat": 45.87364,
+      "lon": 6.72865,
+      "alt": 1160,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_chalere",
+      "nom": "Source de Chalère",
+      "lat": 45.86365,
+      "lon": 6.77016,
+      "alt": 1431,
+      "variante": "alternative_bionnassay"
+    },
+    {
+      "id": "eau_champel",
+      "nom": "Fontaine du Champel",
+      "lat": 45.85952,
+      "lon": 6.73628,
+      "alt": 1210,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_croix_bonhomme",
+      "nom": "Fontaine du refuge de la Croix du Bonhomme",
+      "lat": 45.72214,
+      "lon": 6.71712,
+      "alt": 2443,
+      "variante": "principal",
+      "etat": "débit intermittent, traitement recommandé"
+    },
+    {
+      "id": "eau_lex_blanche",
+      "nom": "Fontaine de la Lex Blanche",
+      "lat": 45.76567,
+      "lon": 6.83847,
+      "alt": 2150,
+      "variante": "principal",
+      "note": "Alpage de la Lex Blanche, pied du refuge Elisabetta"
+    },
+    {
+      "id": "eau_tronchey",
+      "nom": "Fontaine sous Tronchey",
+      "lat": 45.8358,
+      "lon": 6.99844,
+      "alt": 1620,
+      "variante": "principal",
+      "note": "Val Ferret italien"
+    },
+    {
+      "id": "eau_praz_fort_1",
+      "nom": "Fontaine de Praz de Fort (chemin de la Vallo)",
+      "lat": 45.98886,
+      "lon": 7.12381,
+      "alt": 1165,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_praz_fort_2",
+      "nom": "Fontaine de Praz de Fort (Coin du Village)",
+      "lat": 45.98955,
+      "lon": 7.12476,
+      "alt": 1150,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_praz_fort_3",
+      "nom": "Fontaine de Praz de Fort (pause du randonneur)",
+      "lat": 45.9885,
+      "lon": 7.12452,
+      "alt": 1150,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_forclaz",
+      "nom": "Fontaine du col de la Forclaz",
+      "lat": 46.05777,
+      "lon": 7.00162,
+      "alt": 1527,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_trient",
+      "nom": "Fontaine de Trient",
+      "lat": 46.05594,
+      "lon": 6.9958,
+      "alt": 1300,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_gilliod",
+      "nom": "Fontaine de Gilliod",
+      "lat": 46.05624,
+      "lon": 6.99523,
+      "alt": 1293,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_voutaz",
+      "nom": "Fontaine piste forêt Voutaz",
+      "lat": 46.02308,
+      "lon": 7.11807,
+      "alt": 1480,
+      "variante": "fenetre_arpette",
+      "note": "Vers la combe d'Orny"
+    },
+    {
+      "id": "eau_chalets_balme",
+      "nom": "Fontaine des chalets de Balme",
+      "lat": 46.02147,
+      "lon": 6.94949,
+      "alt": 1984,
+      "variante": "detour_col_de_balme",
+      "note": "Léger écart depuis le TMB au col des Posettes"
+    },
+    {
+      "id": "eau_niolet",
+      "nom": "Fontaine du Niolet",
+      "lat": 46.01878,
+      "lon": 7.12003,
+      "alt": 1350,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_tour",
+      "nom": "Fontaine du Tour",
+      "lat": 46.00245,
+      "lon": 6.94568,
+      "alt": 1463,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_champex_1",
+      "nom": "Fontaine Lac de Champex (côté Nord)",
+      "lat": 46.02926,
+      "lon": 7.11728,
+      "alt": 1470,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_champex_2",
+      "nom": "Fontaine Lac de Champex (côté Est)",
+      "lat": 46.02748,
+      "lon": 7.12039,
+      "alt": 1470,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_champex_3",
+      "nom": "Fontaine Lac de Champex (côté Nord-Ouest)",
+      "lat": 46.03061,
+      "lon": 7.11504,
+      "alt": 1470,
+      "variante": "principal"
+    },
+    {
+      "id": "eau_seloge",
+      "nom": "Fontaine de Seloge",
+      "lat": 45.72318,
+      "lon": 6.76309,
+      "alt": 1811,
+      "variante": "principal",
+      "etat": "quasiment détruite"
+    },
+    {
+      "id": "eau_ville_glaciers_wc",
+      "nom": "Toilettes de la Ville des Glaciers",
+      "lat": 45.72825,
+      "lon": 6.76775,
+      "alt": 1794,
+      "variante": "principal",
+      "potable": false,
+      "note": "Aucune eau potable à la Ville des Glaciers, prévoir un traitement"
+    }
   ],
-
   "passages_delicats": [
     {
       "id": "passerelle_bionnassay",
       "nom": "Passerelle de Bionnassay",
-      "lat": 45.86284, "lon": 6.78305, "alt": 1700,
+      "lat": 45.86284,
+      "lon": 6.78305,
+      "alt": 1700,
       "variante": "principal",
       "note": "Passerelle impressionnante au-dessus de flots tumultueux, entre col de Voza et col de Tricot. Alternative possible par le pont des Places / chalet de Chalère ou variante par Champel."
     },
     {
       "id": "fenetre_arpette",
       "nom": "Fenêtre d'Arpette",
-      "lat": 46.0191, "lon": 7.03991, "alt": 2665,
+      "lat": 46.0191,
+      "lon": 7.03991,
+      "alt": 2665,
       "variante": "fenetre_arpette",
       "note": "Variante alpine du TMB entre Champex et Trient. Montée raide des deux côtés dans un pierrier, versant est enneigé plus longtemps."
     },
     {
       "id": "col_ecandies",
       "nom": "Col des Ecandies",
-      "lat": 46.00896, "lon": 7.03495, "alt": 2796,
+      "lat": 46.00896,
+      "lon": 7.03495,
+      "alt": 2796,
       "variante": "fenetre_arpette",
       "note": "Cul-de-sac équipé d'une via ferrata côté Trient, nécessite du matériel adapté."
     },
     {
       "id": "col_bouquetins",
       "nom": "Col des Bouquetins",
-      "lat": 45.74509, "lon": 6.74651, "alt": 2610,
+      "lat": 45.74509,
+      "lon": 6.74651,
+      "alt": 2610,
       "variante": "thomas_roques",
       "note": "Versant ouest complexe et instable (schiste), à négocier avec prudence, notamment à la descente."
     },
     {
       "id": "col_enclave",
       "nom": "Col d'Enclave (versant ouest)",
-      "lat": 45.75466, "lon": 6.74428, "alt": 2672,
+      "lat": 45.75466,
+      "lon": 6.74428,
+      "alt": 2672,
       "variante": "thomas_roques",
       "note": "Versant ouest raide et rocheux entre les lacs Jovet et la vallée des Glaciers, chutes de pierres possibles. Beaucoup de randonneurs peu expérimentés s'y engagent."
     },
     {
       "id": "tre_la_petite",
       "nom": "Tré la Petite",
-      "lat": 45.7855, "lon": 6.75664, "alt": 2340,
+      "lat": 45.7855,
+      "lon": 6.75664,
+      "alt": 2340,
       "variante": "conscrits",
       "note": "Entre le refuge de Tré-la-Tête et celui des Conscrits, plusieurs passages sécurisés par des cordes puis une passerelle himalayenne d'environ 60m."
     },
     {
       "id": "passerelle_armancette",
       "nom": "Passerelle d'Armancette",
-      "lat": 45.81435, "lon": 6.74562, "alt": 1530,
+      "lat": 45.81435,
+      "lon": 6.74562,
+      "alt": 1530,
       "variante": "conscrits",
       "note": "Franchissement sur deux planches sans garde-corps (GRP Tour du Pays du Mont Blanc, entre les Contamines et Tré-la-Tête)."
     }
