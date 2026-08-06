@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "data_version": 2,
+  "data_version": 3,
   "updated_at": "2026-08-06",
   "sources": [
     "refuges.info (CC BY-SA 2.0) - www.refuges.info",
@@ -634,6 +634,36 @@
       "alt": null,
       "note": "Donnée minimale importée depuis la carte umap officielle montourdumontblanc.com — à compléter (capacité, période, contact).",
       "site_montourdumontblanc": "http://www.montourdumontblanc.com/fr/il4-refuge_i32388-rifugio-monte-bianco-cai-uget.aspx"
+    },
+    {
+      "id": "flegere",
+      "nom": "Refuge de la Flégère",
+      "type": "refuge_garde",
+      "variante": "a_verifier",
+      "lat": 45.9599953,
+      "lon": 6.8872948,
+      "alt": null,
+      "note": "À compléter (capacité, période, contact)."
+    },
+    {
+      "id": "bellachat",
+      "nom": "Refuge de Bellachat",
+      "type": "refuge_garde",
+      "variante": "a_verifier",
+      "lat": 45.922171486,
+      "lon": 6.829581052,
+      "alt": null,
+      "note": "À compléter (capacité, période, contact)."
+    },
+    {
+      "id": "walter_bonatti",
+      "nom": "Rifugio Walter Bonatti",
+      "type": "refuge_garde",
+      "variante": "a_verifier",
+      "lat": 45.8469169,
+      "lon": 7.0336612,
+      "alt": null,
+      "note": "À compléter (capacité, période, contact)."
     }
   ],
   "abris_non_gardes": [
@@ -695,7 +725,56 @@
       "lat": 45.80289,
       "lon": 6.72194,
       "alt": 1180,
-      "note": "Seul terrain de camping identifié directement sur le tracé dans ce jeu de données (voir aussi 'pontet' dans refuges, même lieu). Attention: la base refuges.info référence très peu de campings — pense à compléter avec les campings officiels de La Fouly, Champex, Trient et Courmayeur qui ne sont pas dans cet export."
+      "note": "Camping au bord du sentier TMB/GR5, à Notre-Dame/Contamines (base de loisirs du Pontet)."
+    },
+    {
+      "id": "camping_relais_arpette",
+      "nom": "Relais d'Arpette (camping)",
+      "lat": 46.030276,
+      "lon": 7.093414,
+      "note": "À compléter."
+    },
+    {
+      "id": "camping_roccailles",
+      "nom": "Roccailles",
+      "lat": 46.0324461,
+      "lon": 7.108885,
+      "note": "À compléter."
+    },
+    {
+      "id": "camping_le_peuty",
+      "nom": "Le Peuty (camping)",
+      "lat": 46.0460897,
+      "lon": 6.9944172,
+      "note": "À compléter."
+    },
+    {
+      "id": "camping_arpille",
+      "nom": "Camping de l'Arpille",
+      "lat": 46.0584844,
+      "lon": 7.0013673,
+      "note": "À compléter."
+    },
+    {
+      "id": "camping_boerne",
+      "nom": "Boerne (camping)",
+      "lat": 45.9948842,
+      "lon": 6.9274339,
+      "note": "À compléter."
+    },
+    {
+      "id": "camping_bellevue",
+      "nom": "Camping Bellevue",
+      "lat": 45.8912352,
+      "lon": 6.7875607,
+      "note": "À compléter."
+    },
+    {
+      "id": "camping_grandes_jorasses",
+      "nom": "Camping Grandes Jorasses",
+      "lat": 45.832651,
+      "lon": 6.990896,
+      "note": "À compléter."
     }
   ],
   "points_eau": [
@@ -994,15 +1073,6 @@
       "variante": "principal"
     },
     {
-      "id": "eau_seloge",
-      "nom": "Fontaine de Seloge",
-      "lat": 45.72318,
-      "lon": 6.76309,
-      "alt": 1811,
-      "variante": "principal",
-      "etat": "quasiment détruite"
-    },
-    {
       "id": "eau_ville_glaciers_wc",
       "nom": "Toilettes de la Ville des Glaciers",
       "lat": 45.72825,
@@ -1011,6 +1081,25 @@
       "variante": "principal",
       "potable": false,
       "note": "Aucune eau potable à la Ville des Glaciers, prévoir un traitement"
+    },
+    {
+      "id": "eau_chapieux",
+      "nom": "Fontaine des Chapieux",
+      "lat": 45.69726,
+      "lon": 6.73504,
+      "alt": 1550,
+      "variante": "principal",
+      "potable": false,
+      "note": "Coule bien mais non potable, sous un petit toit à la sortie des Chapieux."
+    },
+    {
+      "id": "eau_vallee_glaciers",
+      "nom": "Source de la Vallée des Glaciers",
+      "lat": 45.7013,
+      "lon": 6.74089,
+      "alt": 1575,
+      "variante": "principal",
+      "note": "Petite construction maçonnée cadenassée, l'eau coule dans le talus à côté."
     }
   ],
   "passages_delicats": [
